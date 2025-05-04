@@ -1,13 +1,12 @@
 document.getElementById('RegistrationForm').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Предотвращаем стандартную отправку формы
+    event.preventDefault();
 
-    // Собираем данные из формы
     const formData = {
         name: document.getElementById('InputName').value,
         surname: document.getElementById('InputSurname').value,
         patronymic: document.getElementById('InputPatronymic').value,
         email: document.getElementById('InputEmail').value,
-        password: document.getElementById('InputPassword1').value
+        passwordHash: document.getElementById('InputPassword1').value
     };
 
     try {
@@ -24,10 +23,9 @@ document.getElementById('RegistrationForm').addEventListener('submit', async (ev
         }
 
         const result = await response.json();
-        console.log('Успешная регистрация:', result);
+
         alert('Регистрация прошла успешно!');
     } catch (error) {
-        console.error('Ошибка при регистрации:', error);
         alert('Произошла ошибка при регистрации.');
     }
 });

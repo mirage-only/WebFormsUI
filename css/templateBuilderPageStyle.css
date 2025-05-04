@@ -1,0 +1,17 @@
+.form-control{
+    margin: 10px;
+}
+
+.dropdown{
+    margin: 20px 20px 20px 10px;
+}
+
+.questionInput
+{
+    margin: 10px 10px 30px;
+    display: block;
+}
+
+label{
+    margin-left: 10px;
+}
