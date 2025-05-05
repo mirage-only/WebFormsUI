@@ -19,7 +19,9 @@ document
         newInput.type = "text";
         newInput.id = `shortQuestion${document.querySelectorAll("#shortQuestionsContainer input").length + 1}`;
         newInput.className = 'questionInput';
-        newInput.placeholder = inputPlaceHolder;
+        newInput.placeholder = inputPlaceHolder + " (max 100 characters)";
+        newInput.maxLength = 100;
+        newInput.className = "form-control";
         newInput.required = true;
 
         addElement("shortQuestionsContainer", newLabel);
@@ -39,6 +41,7 @@ document
         newInput.id = `fullTextQuestion${document.querySelectorAll("#fullTextQuestionsContainer input").length + 1}`;
         newInput.className = 'questionInput';
         newInput.placeholder = inputPlaceHolder;
+        newInput.className = "form-control";
         newInput.required = true;
 
         addElement("fullTextQuestionsContainer", newLabel);
@@ -54,9 +57,11 @@ document
         newLabel.classList.add("fw-bold");
 
         const newInput = document.createElement("input");
-        newInput.type = "text";
+        newInput.type = "number";
         newInput.id = `nonNegativeIntegerQuestion${document.querySelectorAll("#nonNegativeIntegerQuestionsContainer input").length + 1}`;
-        newInput.className = 'questionInput';
+        newInput.className = 'questionInput form-control';
+        newInput.min = 0;
+        newInput.step = 1;
         newInput.placeholder = inputPlaceHolder;
         newInput.required = true;
 
@@ -68,44 +73,55 @@ document
     .getElementById("addWithResponsesOptionsQuestion")
     .addEventListener("click", () => {
 
-        const newLabel = document.createElement("label");
-        newLabel.textContent = `${document.querySelectorAll("#withResponsesOptionsQuestionsContainer input").length + 1} question with responses options:`;
-        newLabel.classList.add("fw-bold");
+        const newDiv = document.createElement("div");
+        newDiv.id = `divWithResponsesOptionsQuestion${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}`;
+
+        const newLabel1 = document.createElement("label");
+        newLabel1.textContent = `${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1} question with responses options:`;
+        newLabel1.classList.add("fw-bold");
 
         const newInput = document.createElement("input");
         newInput.type = "text";
-        newInput.id = `withResponsesOptionsQuestion${document.querySelectorAll("#withResponsesOptionsQuestionsContainer input").length + 1}`;
+        newInput.id = `withResponsesOptionsQuestion${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}`;
         newInput.className = 'questionInput';
         newInput.placeholder = inputPlaceHolder;
         newInput.required = true;
 
-        const newDivResponses = document.createElement("div");
-        newDivResponses.type = "div";
-        newDivResponses.id = `responsesOptionsContainer${document.querySelectorAll("#withResponsesOptionsQuestionsContainer input").length + 1}`;
+        const newLabel2 = document.createElement("label");
+        newLabel2.textContent = 'Response options:';
+        newLabel2.classList.add("fw-bold");
 
-        const newInputResponseOption = document.createElement("input");
+        const newInputResponseOption1 = document.createElement("input");
+        newInputResponseOption1.type = "text";
+        newInputResponseOption1.id=`ResponseOption${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}:1`;
+        newInputResponseOption1.className = 'responseOption form-control';
+        newInputResponseOption1.required = true;
 
+        const newInputResponseOption2 = document.createElement("input");
+        newInputResponseOption2.type = "text";
+        newInputResponseOption2.id=`ResponseOption${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}:2`;
+        newInputResponseOption2.className = 'responseOption form-control';
 
-        addElement("withResponsesOptionsQuestionsContainer", newLabel);
-        addElement("withResponsesOptionsQuestionsContainer", newInput);
+        const newInputResponseOption3 = document.createElement("input");
+        newInputResponseOption3.type = "text";
+        newInputResponseOption3.id=`ResponseOption${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}:3`;
+        newInputResponseOption3.className = 'responseOption form-control';
 
-        if (document.querySelectorAll("#responsesOptionsContainer input").length === 0){
-            const newButton = document.createElement("button");
-            newButton.type = "button";
-            newButton.name = `addResponseOptionButton`;
-            newButton.textContent = `Add Response Option`;
-            newButton.className = 'btn btn-dark'
-            newButton.id = `addResponseOptionButton`;
+        const newInputResponseOption4 = document.createElement("input");
+        newInputResponseOption4.type = "text";
+        newInputResponseOption4.id=`ResponseOption${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}:4`;
+        newInputResponseOption4.className = 'responseOption form-control';
 
-            addElement("withResponsesOptionsQuestionsContainer", newButton);
-        }
+        addElement("withResponsesOptionsQuestionsContainer", newDiv)
+        addElement(newDiv.id, newLabel1);
+        addElement(newDiv.id, newInput);
+        addElement(newDiv.id, newLabel2);
+        addElement(newDiv.id, newInputResponseOption1);
+        addElement(newDiv.id, newInputResponseOption2);
+        addElement(newDiv.id, newInputResponseOption3);
+        addElement(newDiv.id, newInputResponseOption4);
+
     });
-
-document
-    .getElementById("addResponseOptionButton")
-    .addEventListener("click", () => {
-
-    })
 
 
 
