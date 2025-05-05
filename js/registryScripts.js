@@ -15,7 +15,7 @@ document
 
         try
         {
-            const response = await fetch('https://localhost:44329/users/add', {
+            const response = await fetch('http://webforms.somee.com/users/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
