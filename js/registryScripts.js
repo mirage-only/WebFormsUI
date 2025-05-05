@@ -15,7 +15,7 @@ document
 
         try
         {
-            const response = await fetch('http://webforms.somee.com/users/add', {
+            const response = await fetch('https://webforms.somee.com/users/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
