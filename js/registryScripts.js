@@ -23,17 +23,15 @@ document
                 body: JSON.stringify(formData)
             });
 
-            if (!response.ok)
-            {
-                throw new Error(`Ошибка: ${response.status}`);
+            if (!response.ok) {
+                const errorResponse = await response.json();
+                const errorMessage = errorResponse.detail;
+                throw new Error(`Ошибка: ${errorMessage}`);
             }
 
             const result = await response.json();
-
             alert('Регистрация прошла успешно!');
-        }
-        catch (error)
-        {
-            alert('Произошла ошибка при регистрации.');
+        } catch (error) {
+            alert(error.message);
         }
     });
