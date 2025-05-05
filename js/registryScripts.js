@@ -26,11 +26,11 @@ document
             if (!response.ok) {
                 const errorResponse = await response.json();
                 const errorMessage = errorResponse.detail;
-                throw new Error(`Ошибка: ${errorMessage}`);
+                throw new Error(`${errorMessage}`);
             }
 
             const result = await response.json();
-            alert('Регистрация прошла успешно!');
+            alert('Registration successfully added!');
         } catch (error) {
             alert(error.message);
         }
