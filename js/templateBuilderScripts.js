@@ -19,8 +19,8 @@ document
         newInput.type = "text";
         newInput.id = `shortQuestion${document.querySelectorAll("#shortQuestionsContainer input").length + 1}`;
         newInput.className = 'questionInput';
-        newInput.placeholder = inputPlaceHolder + " (max 100 characters)";
-        newInput.maxLength = 100;
+        newInput.placeholder = inputPlaceHolder + " (max 45 characters)";
+        newInput.maxLength = 45;
         newInput.className = "form-control";
         newInput.required = true;
 
@@ -83,7 +83,7 @@ document
         const newInput = document.createElement("input");
         newInput.type = "text";
         newInput.id = `withResponsesOptionsQuestion${document.querySelectorAll("#withResponsesOptionsQuestionsContainer div").length + 1}`;
-        newInput.className = 'questionInput';
+        newInput.className = 'questionInput form-control';
         newInput.placeholder = inputPlaceHolder;
         newInput.required = true;
 
