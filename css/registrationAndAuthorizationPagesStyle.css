@@ -1,7 +1,11 @@
 body{
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, #9aedbf, #e99aed);
+}
+
+a{
+    margin: 2px;
 }
